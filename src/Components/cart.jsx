@@ -14,7 +14,7 @@ const Cart = ({
         <td className="col-lg-2">{item.count}</td>
         <td className="col-lg-2">
           {"\u0024"}
-          {item.price * item.count}
+          {Number((item.price * item.count).toFixed(2))}
         </td>
         <td className="col-lg-1">
           <button
@@ -47,7 +47,7 @@ const Cart = ({
   let totalPrice = _.reduce(
     data,
     (acc, cur) => {
-      return acc + cur.price * cur.count;
+      return Number((acc + cur.price * cur.count).toFixed(2));
     },
     0.0
   );
